@@ -1,35 +1,72 @@
 import './App.css'
-import type {JSX} from "react";
+import {type JSX, useState} from "react";
+
+const personalImages = [
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+  "https://cdn.pixabay.com/photo/2025/04/08/10/42/landscape-9521261_1280.jpg",
+]
+const personalElements: JSX.Element[] = []
+for (let index= 0; index < personalImages.length; index++) {
+  personalElements.push(
+    <div key={index + "_personal"} className={"gallery-item"}>
+      <img
+        src={personalImages[index]}
+        alt={"Image from the Public Domain Archive"}
+      />
+    </div>
+  )
+}
+
+const professionalImages: string[] = [
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+  "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
+
+]
+const professionalElements: JSX.Element[] = []
+for (let index= 0; index < professionalImages.length; index++) {
+  professionalElements.push(
+    <div key={index + "_prof"} className={"gallery-item"}>
+      <img
+        src={professionalImages[index]}
+        alt={"null"}
+      />
+    </div>
+  )
+}
+
+const allImages = [personalElements, professionalElements]
 
 function App() {
-  const elements: JSX.Element[] = []
-  const images = [
-    "https://images.pdimagearchive.org/essays/from-snowdrop-to-nightjar/01-Thornton-24-Snowdrop-02-edit.jpeg",
-    "https://images.pdimagearchive.org/collections/john-margolies-photographs-of-roadside-america/48635803543_f6ca2336c3_c.jpg",
-    "https://images.pdimagearchive.org/collections/birds-from-the-natural-history-of-carolina-florida-and-the-bahama-islands-1754/8074061651_010dca0662_o.jpg",
-    "https://images.pdimagearchive.org/collections/henrique-alvim-correa-war-of-the-worlds/laguerredesmonde00well_0255.jpg?width=1242&height=800",
-    "https://images.pdimagearchive.org/shop/oct_19_new_prints_00098.jpg",
-    "https://images.pdimagearchive.org/collections/portraits-of-ellis-island-immigrants/20264329901_14c1a19321_b.jpg",
-    "https://images.pdimagearchive.org/collections/das-thier-in-der-decorativen-kunst/gri_33125013920190_0046.jpg",
-    "https://images.pdimagearchive.org/collections/space-colony-art-from-the-1970s/space-colony-7.jpg?width=1580&height=800"
-  ]
-  for (let index= 0; index < images.length; index++) {
-    elements.push(
-      <div className={"gallery-item"}>
-        <img
-          src={images[index]}
-          alt={"Image from the Public Domain Archive"}
-        />
-      </div>
+  const [imageIndex, setImageIndex] = useState(0);
+  const [images, setImages] = useState(personalElements);
 
-    )
+  function handleClick() {
+    setImageIndex((imageIndex: number) => {
+      return (imageIndex + 1) % 2
+    })
+    setImages(allImages[imageIndex])
   }
 
   return (
     <>
       <div className={"main"}>
+        <button onClick={handleClick}>Change images</button>
         <div className={"gallery-container"}>
-          {elements}
+          {images}
         </div>
       </div>
     </>
