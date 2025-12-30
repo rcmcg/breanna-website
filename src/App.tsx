@@ -34,7 +34,6 @@ const professionalImages: string[] = [
   "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
   "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
   "https://cdn.pixabay.com/photo/2022/08/08/19/36/landscape-7373484_1280.jpg",
-
 ]
 const professionalElements: JSX.Element[] = []
 for (let index= 0; index < professionalImages.length; index++) {
@@ -44,6 +43,17 @@ for (let index= 0; index < professionalImages.length; index++) {
         src={professionalImages[index]}
         alt={"null"}
       />
+    </div>
+  )
+}
+
+function Header() {
+
+  return (
+    <div className={"header"}>
+      <div className={"header-item"}>
+        <img src={"/logo.png"} alt={"Breanna McGowan's logo"}/>
+      </div>
     </div>
   )
 }
@@ -63,6 +73,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <div className={"main"}>
         <button onClick={handleClick}>Change images</button>
         <div className={"gallery-container"}>
