@@ -4,5 +4,6 @@ img {
 }
 
 html {
-    background-color: rgb(227, 152, 158);
+    background-image: url("/background.png");
+    background-size: cover;
 }
