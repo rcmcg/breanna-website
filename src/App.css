@@ -23,7 +23,7 @@
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -38,10 +38,7 @@
 
 @media screen and (width <= 1440px) {
     .gallery-item {
-        /*height: 50vh;*/
-        /*background-size: contain;*/
         width: 45%;
-        /*background-position: center center;*/
     }
 }
 
@@ -55,6 +52,7 @@
     .gallery-item {
         height: 15vh;
         width: 100%;
+        background-position: center center;
     }
 }
 
