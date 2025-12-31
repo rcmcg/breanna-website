@@ -12,6 +12,19 @@
     padding-left: 20px;
 }
 
+@font-face {
+    font-family: PF-VideoText;
+    src: url("/personal/font/pfvideotext-reg-subset.otf")
+}
+
+.header-text {
+    font-family: PF-VideoText, sans-serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: rgb(152, 135, 199);
+    text-shadow: 2px 2px 0 rgb(39, 31, 64);
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -34,6 +47,7 @@
     width: 30%;
     margin: 10px;
     background-size: cover;
+    box-shadow: 9px 9px 0 rgb(46, 37, 75);
 }
 
 @media screen and (width <= 1440px) {

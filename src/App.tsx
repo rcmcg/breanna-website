@@ -17,8 +17,19 @@ function Header() {
 
   return (
     <div className={"header"}>
-      <div className={"header-item"}>
-        <img src={"/logo.png"} alt={"Breanna McGowan's logo"}/>
+      <div style={
+        {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }
+      }>
+        <div className={"header-item"}>
+          <img src={"/logo.png"} alt={"Breanna McGowan's logo"}/>
+        </div>
+        <div className={"header-text"}>
+          Breanna McGowan
+        </div>
       </div>
     </div>
   )
