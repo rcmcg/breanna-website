@@ -12,6 +12,12 @@
     padding-left: 20px;
 }
 
+@media screen and (width <= 453px) {
+    .header-item > img {
+        max-height: 150px;
+    }
+}
+
 @font-face {
     font-family: PF-VideoText;
     src: url("/personal/font/pfvideotext-reg-subset.otf")
@@ -23,6 +29,12 @@
     font-size: 3rem;
     color: rgb(152, 135, 199);
     text-shadow: 2px 2px 0 rgb(39, 31, 64);
+}
+
+@media screen and (width <= 453px) {
+    .header-text {
+        font-size: 2rem;
+    }
 }
 
 .main {
