@@ -23,21 +23,113 @@
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    max-width: 60%;
-}
-
-@media screen and (width <= 1280px) {
-    .gallery-container {
-        max-width: 100%;
-    }
+    width: 100%;
 }
 
 .gallery-item {
-    max-height: 250px;
-    max-width: 500px;
+    height: 25vh;
+    max-height: 400px;
+    width: 30%;
     margin: 10px;
-    overflow: hidden;
-    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (width <= 1440px) {
+    .gallery-item {
+        /*height: 50vh;*/
+        /*background-size: contain;*/
+        width: 45%;
+        /*background-position: center center;*/
+    }
+}
+
+@media screen and (width < 1024px) {
+    .gallery-item {
+        width: 80%;
+    }
+}
+
+@media screen and (width < 768px) {
+    .gallery-item {
+        height: 15vh;
+        width: 100%;
+    }
+}
+
+.img-0 {
+    background-image: url("/personal/preview/angel-preview.png");
+}
+
+.img-1 {
+    background-image: url("/personal/preview/angel-waste-preview.png");
+}
+
+.img-2 {
+    background-image: url("/personal/preview/axe-card-preview.png");
+}
+
+.img-3 {
+    background-image: url("/personal/preview/cigs-preview.png");
+}
+
+.img-4 {
+    background-image: url("/personal/preview/darkest-preview.png");
+}
+
+.img-5 {
+    background-image: url("/personal/preview/dogs-preview.png");
+}
+
+.img-6 {
+    background-image: url("/personal/preview/dragon-painting-preview.png");
+}
+
+.img-7 {
+    background-image: url("/personal/preview/fish-preview.png");
+}
+
+.img-8 {
+    background-image: url("/personal/preview/Floating_Head-preview.png");
+}
+
+.img-9 {
+    background-image: url("/personal/preview/headshot-1-preview.png");
+}
+
+.img-10 {
+    background-image: url("/personal/preview/headshot-2-preview.png");
+}
+
+.img-11 {
+    background-image: url("/personal/preview/hooded-gewby-preview.png");
+}
+
+.img-12 {
+    background-image: url("/personal/preview/kawaii-thing-preview.png");
+}
+
+.img-13 {
+    background-image: url("/personal/preview/knight-2-preview.png");
+}
+
+.img-14 {
+    background-image: url("/personal/preview/knight-preview.png");
+}
+
+.img-15 {
+    background-image: url("/personal/preview/pickled-rabbit-preview.png");
+}
+
+.img-16 {
+    background-image: url("/personal/preview/scythe-preview.png");
+}
+
+.img-17 {
+    background-image: url("/personal/preview/smoke-preview.png");
+}
+
+.img-18 {
+    background-image: url("/personal/preview/spear-card-preview.png");
 }
