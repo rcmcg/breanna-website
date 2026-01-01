@@ -26,16 +26,18 @@ function Header() {
 
 function Modal({handleCloseModal}: {handleCloseModal: () => void}) {
   const modalRoot = document.getElementById("modal-root");
-  const root = document.getElementById("root")
+  const root = document.getElementById("root");
   if (modalRoot == null || root == null) {
     throw Error("Can't find modal-root and/or root");
   }
   root.classList.add("darken")
+  document.body.classList.add("overflow-hidden")
 
   function handleClose() {
     if (root != null) {
       root.classList.remove("darken");
     }
+    document.body.classList.remove("overflow-hidden");
     handleCloseModal();
   }
 
