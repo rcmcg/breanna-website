@@ -103,6 +103,20 @@
     border: solid 8px white;
 }
 
+.modal-container > button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 32px;
+}
+
+.modal-container > button:hover {
+    cursor: pointer;
+}
+
 body {
     margin: 0;
 }

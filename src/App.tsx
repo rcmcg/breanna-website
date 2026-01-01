@@ -44,8 +44,8 @@ function Modal({handleCloseModal}: {handleCloseModal: () => void}) {
   return createPortal(
     <>
       <div className={"modal-container"}>
+        <button onClick={handleClose}>X</button>
         <img src={"/personal/320w/angel.png"} alt={"TODO"}/>
-        <button onClick={handleClose}>Close</button>
       </div>
     </>,
     modalRoot
