@@ -87,6 +87,31 @@
     }
 }
 
+#modal-root {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 8px white;
+}
+
+body {
+    margin: 0;
+}
+
+.darken {
+    background-color: black;
+    opacity: 0.5;
+}
+
 .img-0 {
     background-image: url("/personal/preview/angel-preview.png");
 }

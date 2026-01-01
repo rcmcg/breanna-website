@@ -1,5 +1,6 @@
 import './App.css'
 import {type JSX, useLayoutEffect, useRef, useState} from "react";
+import {createPortal} from "react-dom";
 
 function Header() {
 
@@ -23,17 +24,35 @@ function Header() {
   )
 }
 
-function Dialog({isOpen, imgUrl}: {isOpen: boolean, imgUrl: string}) {
-  return (
-    <div>
-      <dialog open={isOpen}>
-        <img src={imgUrl}/>
-      </dialog>
-    </div>
+function Modal({handleCloseModal}: {handleCloseModal: () => void}) {
+  const modalRoot = document.getElementById("modal-root");
+  const root = document.getElementById("root")
+  if (modalRoot == null || root == null) {
+    throw Error("Can't find modal-root and/or root");
+  }
+  root.classList.add("darken")
+
+  function handleClose() {
+    if (root != null) {
+      root.classList.remove("darken");
+    }
+    handleCloseModal();
+  }
+
+  return createPortal(
+    <>
+      <div className={"modal-container"}>
+        <img src={"/personal/320w/angel.png"} alt={"TODO"}/>
+        <button onClick={handleClose}>Close</button>
+      </div>
+    </>,
+    modalRoot
   )
 }
 
 function Gallery() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const personalElements: JSX.Element[] = []
   for (let index= 0; index < 19; index++) {
     personalElements.push(
@@ -42,9 +61,15 @@ function Gallery() {
   }
 
   return (
-    <div className={"gallery-container"}>
-      {personalElements}
-    </div>
+    <>
+      {isModalOpen && (
+        <Modal handleCloseModal={() => setIsModalOpen(false)}/>
+      )}
+      <button onClick={() => setIsModalOpen(true)}>Open modal</button>
+      <div className={"gallery-container"}>
+        {personalElements}
+      </div>
+    </>
   )
 }
 
@@ -63,7 +88,6 @@ function GalleryItem({index}: {index: number}) {
 
   return (
     <>
-      <Dialog isOpen={isDialogOpen} imgUrl={"/personal/preview/knight-preview.png"}/>
       <div
         key={index + "_personal"}
         className={"gallery-item" + " img-" + index}
