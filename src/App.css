@@ -132,7 +132,7 @@
     padding-right: 20px;
 }
 
-@media screen and (width < 768px) {
+@media screen and (width < 768px), screen and (height < 1000px) {
     .modal-container > button {
         font-size: 32px;
         padding-left: 9px;
