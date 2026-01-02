@@ -103,6 +103,10 @@
     border: solid 1px darkgray;
 }
 
+.modal-container > img {
+    max-height: 90vh;
+}
+
 .modal-container > button {
     position: absolute;
     top: 8px;
