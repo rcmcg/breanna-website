@@ -1,6 +1,7 @@
 import './App.css'
 import {type JSX, useState} from "react";
 import {createPortal} from "react-dom";
+import {photos} from "./PhotoInfos.ts";
 
 function Header() {
 
@@ -43,40 +44,25 @@ function Modal({handleCloseModal, imgIdx}: {
     document.body.classList.remove("overflow-hidden");
     handleCloseModal();
   }
+  const photoInfo = photos[imgIdx];
 
   return createPortal(
     <>
       <div className={"modal-container"}>
         <button onClick={handleClose}>X</button>
-        <img src={test[imgIdx]} alt={"TODO"}/>
+        <img
+          srcSet={
+            `${photoInfo.small_path} 320w, ${photoInfo.full_path} ${photoInfo.full_width}w`
+          }
+          sizes={"(width < 768px) 320px, " + photoInfo.full_width}
+          src={photoInfo.full_path}
+          alt={photoInfo.alt_text}
+        />
       </div>
     </>,
     modalRoot
   )
 }
-
-// TODO: fix this
-const test = [
-  "/personal/half/angel.png",
-  "/personal/half/angel_waste.png",
-  "/personal/half/axe-card.png",
-  "/personal/half/cigs.png",
-  "/personal/half/darkest.png",
-  "/personal/half/dogs.png",
-  "/personal/half/dragon-painting.jpg",
-  "/personal/half/fish.png",
-  "/personal/half/Floating_Head.png",
-  "/personal/half/headshot-1.png",
-  "/personal/half/headshot-2.png",
-  "/personal/half/hooded-gewby.png",
-  "/personal/half/kawaii-thing.png",
-  "/personal/half/knight-2.png",
-  "/personal/half/knight.png",
-  "/personal/half/pickled-rabbit.png",
-  "/personal/half/scythe.png",
-  "/personal/half/smoke.png",
-  "/personal/half/spear-card.png",
-]
 
 function Gallery() {
   const [currentImgIndex, setCurrentImgIndex] = useState(-1);
