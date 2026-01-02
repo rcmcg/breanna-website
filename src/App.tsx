@@ -1,5 +1,5 @@
 import './App.css'
-import {type JSX, useLayoutEffect, useRef, useState} from "react";
+import {type JSX, useState} from "react";
 import {createPortal} from "react-dom";
 
 function Header() {
@@ -24,7 +24,10 @@ function Header() {
   )
 }
 
-function Modal({handleCloseModal}: {handleCloseModal: () => void}) {
+function Modal({handleCloseModal, imgIdx}: {
+  handleCloseModal: () => void,
+  imgIdx: number,
+}) {
   const modalRoot = document.getElementById("modal-root");
   const root = document.getElementById("root");
   if (modalRoot == null || root == null) {
@@ -45,29 +48,63 @@ function Modal({handleCloseModal}: {handleCloseModal: () => void}) {
     <>
       <div className={"modal-container"}>
         <button onClick={handleClose}>X</button>
-        <img src={"/personal/320w/angel.png"} alt={"TODO"}/>
+        <img src={test[imgIdx]} alt={"TODO"}/>
       </div>
     </>,
     modalRoot
   )
 }
 
+// TODO: fix this
+const test = [
+  "/personal/320w/angel.png",
+  "/personal/320w/angel_waste.png",
+  "/personal/320w/axe-card.png",
+  "/personal/320w/cigs.png",
+  "/personal/320w/darkest.png",
+  "/personal/320w/dogs.png",
+  "/personal/320w/dragon-painting.jpg",
+  "/personal/320w/fish.png",
+  "/personal/320w/Floating_Head.png",
+  "/personal/320w/headshot-1.png",
+  "/personal/320w/headshot-2.png",
+  "/personal/320w/hooded-gewby.png",
+  "/personal/320w/kawaii-thing.png",
+  "/personal/320w/knight.png",
+  "/personal/320w/knight-2.png",
+  "/personal/320w/pickled-rabbit.png",
+  "/personal/320w/scythe.png",
+  "/personal/320w/smoke.png",
+  "/personal/320w/spear-card.png",
+]
+
 function Gallery() {
+  const [currentImgIndex, setCurrentImgIndex] = useState(-1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function changeIdx(idx: number) {
+    setCurrentImgIndex(idx);
+    setIsModalOpen(true);
+  }
 
   const personalElements: JSX.Element[] = []
   for (let index= 0; index < 19; index++) {
     personalElements.push(
-      <GalleryItem index={index} />
+      <GalleryItem
+        index={index}
+        handleIdxChange={changeIdx}
+      />
     )
   }
 
   return (
     <>
       {isModalOpen && (
-        <Modal handleCloseModal={() => setIsModalOpen(false)}/>
+        <Modal
+          handleCloseModal={() => setIsModalOpen(false)}
+          imgIdx={currentImgIndex}
+        />
       )}
-      <button onClick={() => setIsModalOpen(true)}>Open modal</button>
       <div className={"gallery-container"}>
         {personalElements}
       </div>
@@ -75,25 +112,18 @@ function Gallery() {
   )
 }
 
-function GalleryItem({index}: {index: number}) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useLayoutEffect(() => {
-    if (dialogRef.current?.open && !isDialogOpen) {
-      dialogRef.current.close()
-    } else if (dialogRef.current?.open && isDialogOpen) {
-      dialogRef.current.showModal()
-    }
-  }, [isDialogOpen]);
-
+function GalleryItem({index, handleIdxChange}: {
+  index: number,
+  handleIdxChange: (idx: number) => void
+}) {
   return (
     <>
       <div
         key={index + "_personal"}
         className={"gallery-item" + " img-" + index}
-        onClick={() => {setIsDialogOpen(!isDialogOpen)}}
+        onClick={() => {
+          handleIdxChange(index)
+        }}
         // style={{backgroundImage: `url(${personalImages[index]})`}}
       >
       </div>
