@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: PF-VideoText;
-    src: url("/personal/font/pfvideotext-reg-subset.otf")
+    src: url("/font/pfvideotext-reg-subset.otf")
 }
 
 .header-text {
