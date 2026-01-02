@@ -10,7 +10,7 @@ export const photos: IPhotoInfo[] = [
     431
   ),
   getIPhotoInfo(
-    "angel-waste.png",
+    "angel_waste.png",
     "Dead woman with a bullet wound in the head, angel tattoo above her right eye",
     872
   ),
@@ -35,7 +35,7 @@ export const photos: IPhotoInfo[] = [
     900,
   ),
   getIPhotoInfo(
-    "dragon-painting.png",
+    "dragon-painting.jpg",
     "TODO",
     796,
   ),
@@ -82,7 +82,7 @@ export const photos: IPhotoInfo[] = [
   getIPhotoInfo(
     "pickled-rabbit.png",
     "TODO",
-    1600,
+    600,
   ),
   getIPhotoInfo(
     "scythe.png",
@@ -97,7 +97,7 @@ export const photos: IPhotoInfo[] = [
   getIPhotoInfo(
     "spear-card.png",
     "TODO",
-    1200,
+    600,
   ),
 ]
 

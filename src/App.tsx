@@ -102,6 +102,7 @@ function GalleryItem({index, handleIdxChange}: {
   index: number,
   handleIdxChange: (idx: number) => void
 }) {
+  console.log("")
   return (
     <>
       <div
@@ -110,7 +111,7 @@ function GalleryItem({index, handleIdxChange}: {
         onClick={() => {
           handleIdxChange(index)
         }}
-        // style={{backgroundImage: `url(${personalImages[index]})`}}
+        style={{backgroundImage: `url(${photos[index].preview_path})`}}
       >
       </div>
     </>
