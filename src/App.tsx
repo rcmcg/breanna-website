@@ -57,6 +57,7 @@ function Modal({handleCloseModal, imgIdx}: {
           sizes={"(width < 768px) 320px, " + photoInfo.full_width}
           src={photoInfo.full_path}
           alt={photoInfo.alt_text}
+          style={{maxWidth: photoInfo.full_width}}
         />
       </div>
     </>,
@@ -102,7 +103,6 @@ function GalleryItem({index, handleIdxChange}: {
   index: number,
   handleIdxChange: (idx: number) => void
 }) {
-  console.log("")
   return (
     <>
       <div
