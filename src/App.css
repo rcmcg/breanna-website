@@ -127,7 +127,17 @@
     background: black;
     border: none;
     color: white;
-    font-size: 32px;
+    font-size: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media screen and (width < 768px) {
+    .modal-container > button {
+        font-size: 32px;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
 }
 
 .modal-container > button:hover {
