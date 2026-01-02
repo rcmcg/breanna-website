@@ -2,7 +2,7 @@ import type {IPhotoInfo} from "./IPhotoInfo.ts";
 
 const preview_root = "/personal/preview/"
 const small_root = "/personal/320w/"
-const quarter_root = "/personal/half/"
+const full_root = "/personal/full/"
 export const photos: IPhotoInfo[] = [
   getIPhotoInfo(
     "angel.png",
@@ -105,7 +105,7 @@ function getIPhotoInfo(file_name: string, alt_text: string, full_width: number):
   return {
     preview_path: preview_root + file_name,
     small_path: small_root + file_name,
-    full_path: quarter_root + file_name,
+    full_path: full_root + file_name,
     full_width: full_width,
     alt_text: alt_text,
   }
